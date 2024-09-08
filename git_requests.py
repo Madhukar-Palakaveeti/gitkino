@@ -2,7 +2,7 @@ import requests
 import time 
 import json
 import os
-import random
+
 
 access_token = os.environ.get('GITHUB_ACCESS_TOKEN')
 HEADERS = {'accept' : 'application/vnd.github+json', 
@@ -11,9 +11,12 @@ HEADERS = {'accept' : 'application/vnd.github+json',
             }
 
 urls = []
-
-user_id = random.choice(range(10000))
+with open('resources/user_urls.json', 'r') as jf:
+    ob = json.load(jf)
+old_urls = ob['urls']
+user_id = ob['last_id'] + 1
 max_id = user_id + 20000
+
 while user_id < max_id:
     main_url = f'https://api.github.com/users?since={user_id}'
     response = requests.get(headers=HEADERS, url=main_url)
@@ -28,9 +31,10 @@ while user_id < max_id:
         last_id = users[-1].get('id')
     user_id = last_id + 1
 
-    time.sleep(0.5)
-   
-with open('user_urls.json', 'w') as f:
-    json.dump({'urls' : urls, 'last_id' : last_id}, f)
+    time.sleep(0.8)
+
+new_urls = old_urls + urls   
+with open('resources/user_urls.json', 'w') as f:
+    json.dump({'urls' : new_urls, 'last_id' : last_id}, f)
 
 

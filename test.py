@@ -5,14 +5,14 @@ import os
 # # with open('user_urls.json', 'r') as f:
 # #     a = json.load(f)
 # # arr = a['urls']
-# access_token = os.environ.get('GITHUB_ACCESS_TOKEN')
-# HEADERS = {'accept' : 'application/vnd.github+json', 
-#             'X-GitHub-Api-Version': '2022-11-28',
-#             'Authorization': f'Bearer {access_token}'
-#             }
+access_token = os.environ.get('GITHUB_ACCESS_TOKEN')
+HEADERS = {'accept' : 'application/vnd.github+json', 
+            'X-GitHub-Api-Version': '2022-11-28',
+            'Authorization': f'Bearer {access_token}'
+            }
 # # url = 'https://api.github.com/users'
-# user_res = requests.get(headers=HEADERS,url='https://api.github.com/users/asyraf9')
-# repos_res = requests.get(headers=HEADERS,url='https://api.github.com/users/asyraf9/repos')
+user_res = requests.get(headers=HEADERS,url='https://api.github.com/users/asyraf9')
+repos_res = requests.get(headers=HEADERS,url='https://api.github.com/users/asyraf9/repos')
 # # if user_res.status_code == 200 and repos_res.status_code == 200:
 # #     batch_data = {}
 # #     user_data = user_res.json()
@@ -28,8 +28,11 @@ import os
 # #                                     'watchers' : repo['watchers']}
 # #                                     for repo in repos_data ]
     
-# print(repos_res.headers)
-with open('resources/dataset.json', 'r') as f:
-    d = json.load(f)
-data = d['data']
-print(data[1])
+print(repos_res.headers)
+# with open('resources/dataset.json', 'r') as f:
+#     d = json.load(f)
+# data = d['data']
+# print(data[1])
+# with open('resources/user_urls.json', 'r') as f:
+#     ob = json.load(f)
+# print(ob['last_id'])

@@ -202,3 +202,77 @@ From this, extract required features -
 - watchers
 - Language
 - stargazers_count
+
+{'language': 'Ruby', 'stars': 0, 'forks': 0, 'watchers': 0}, 
+{'language': 'Ruby', 'stars': 0, 'forks': 0, 'watchers': 0}, 
+{'language': 'Ruby', 'stars': 64, 'forks': 16, 'watchers': 64}, 
+{'language': 'Ruby', 'stars': 1, 'forks': 0, 'watchers': 1}, 
+{'language': 'CoffeeScript', 'stars': 0, 'forks': 0, 'watchers': 0}, 
+{'language': 'JavaScript', 'stars': 0, 'forks': 1, 'watchers': 0}, 
+{'language': 'JavaScript', 'stars': 1, 'forks': 0, 'watchers': 1}, 
+{'language': 'Ruby', 'stars': 1, 'forks': 0, 'watchers': 1},
+ {'language': 'JavaScript', 'stars': 0, 'forks': 1, 'watchers': 0}, 
+ {'language': 'Ruby', 'stars': 1, 'forks': 0, 'watchers': 1}, 
+ {'language': 'JavaScript', 'stars': 0, 'forks': 0, 'watchers': 0}, 
+ {'language': 'Ruby', 'stars': 6, 'forks': 0, 'watchers': 6}, 
+ {'language': 'JavaScript', 'stars': 6, 'forks': 0, 'watchers': 6}, 
+ {'language': None, 'stars': 1, 'forks': 0, 'watchers': 1}, 
+ {'language': 'Ruby', 'stars': 0, 'forks': 1, 'watchers': 0}, 
+ {'language': 'Ruby', 'stars': 0, 'forks': 0, 'watchers': 0}, 
+ {'language': 'Ruby', 'stars': 0, 'forks': 0, 'watchers': 0}, 
+ {'language': 'Python', 'stars': 0, 'forks': 0, 'watche, 'watchers': 0},
+  {'language': 'Ruby', 'stars': 0, 'forks': 0, 'watchers': 0},
+   {'language': 'Python', 'stars': 0, 'forks': 0, 'watche, 'watchers': 0}, 
+   {'language': 'Ruby', 'stars': 0, 'forks': 0, 'watchers': 0}, 
+   {'language': 'Python', 'stars': 0, 'forks': 0, 'watche, 'watchers': 0}, 
+   {'language': 'Ruby', 'stars': 0, 'forks': 0, 'watchers': 0},
+    {'language': 'Python', 'stars': 0, 'forks': 0, 'watchers': 0}, 
+    {'language': 'Ruby', 'stars': 2, 'forks': 2, 'watchers': 2}, 
+    {'language': 'JavaScript', 'stars': 1, 'forks': 0, 'watchers': 
+, 'watchers': 0}, 
+{'language': 'Ruby', 'stars': 0, 'forks': 0, 'watchers': 0}, {'language': 'Python', 'stars': 0, 'forks': 0, 'watchers': 0}, {'language': 'Ruby', 'stars': 2, 'forks': 2, 'watchers': 2}, {'language': 'JavaScript', 'stars': 1, 'forks': 0, 'watchers': 
+, 'watchers': 0}, 
+{'language': 'Ruby', 'stars': 0, 'forks': 0, 'watchers': 0}, {'language': 'Python', 'stars': 0, 'forks': 0, 'watche, 'watchers': 0}, {'language': 'Ruby', 'stars': 0, 'forks': 0, 'watchers': 0}, {'language': 'Python', 'stars': 0, 'forks': 0, 'watchers': 0}, {'language': 'Ruby', 'stars': 2, 'forks': 2, 'watchers': 2}, {'language': 'JavaScript', 'stars': 1, 'forks': 0, 'watchers': 
+1}, {'language': 'JavaScript', 'stars': 0, 'forks': 0, 'watchers': 0}]}
+, 'watchers': 0}, {'language': 'Ruby', 'stars': 0, 'forks': 0, 'watchers': 0}, {'language': 'Python', 'stars': 0, 'forks': 0, 'watchers': 0}, {'language': 'Ruby', 'stars': 2, 'forks': 2, 'watchers': 2}, {'language': 'JavaScript', 'stars': 1, 'forks': 0, 'watchers': 
+, 'watchers': 0}, {'language': 'Ruby', 'stars': 0, 'forks': 0, 'watchers': 0}, {'language': 'Python', 'stars': 0, 'forks': 0, 'watche, 'watchers': 0}, {'language': 'Ruby', 'stars': 0, 'forks': 0, 'watchers': 0}, {'language': 'Python', 'stars': 0, 'forks': 0, 'watchers': 0}, {'language': 'Ruby', 'stars': 2, 'forks': 2, 'watchers': 2}, {'language': 'JavaScript', 'stars': 1, 'forks': 0, 'watchers': 
+1}, {'language': 'JavaScript', 'stars': 0, 'forks': 0, 'watchers': 0}
+
+Criterion:
+- Must have atleast 50 followers
+- Must have atleast 50 forks across all of the repositories
+- Must have atleast 50 stars across all of the repositories
+- Must have atleast 50 watchers across all of the repositories
+- Atleast 2 languages used must be top-tier or medium-tier
+Languages tier-list:
+1. Top-tier - python, C, C++, zig, rust, asm, lua
+2. Medium-tier - js, ts, ruby, java , jupyter, shell, php, openSCAD
+3. low-tier - c#, html, css
+
+chatgpt prompt - 
+1. I have a csv of 20000 samples of github users data, i want it to be labeled as good or bad based on a criteria which i will provide, can u do it?
+2. I have attached the dataset and the criteria is as follows:
+A row of the csv is considered good if it
+- Must have atleast 50 followers
+- Must have atleast 50 forks across all of the repositories
+- Must have atleast 50 stars across all of the repositories
+- Must have atleast 50 watchers across all of the repositories
+- Atleast 2 languages used must be top-tier or medium-tier
+Languages tier-list:
+1. Top-tier - python, C, C++, zig, rust, asm, lua
+2. Medium-tier - js, ts, ruby, java , jupyter, shell, php, openSCAD
+3. low-tier - c#, html, css
+If you encounter any other language, you can put it into any of the tier-list based on general consensus. 
+
+After some analysis, heres the upgraded grading system:
+1.Thresholds for Followers, Stars, Forks, and Watchers:
+  Followers: ≥ 20
+  Stars: ≥ 30
+  Forks: ≥ 20
+  Watchers: ≥ 30
+2.Relax the Language Requirement: At least 1 language from the top-tier or medium-tier list.
+Graded System:
+- Excellent: Meets all thresholds and uses at least 2 top-tier languages.
+- Good: Meets all thresholds and uses at least 1 top-tier or medium-tier language.
+- Average: Meets at least 2 out of 4 thresholds and uses at least 1 top-tier or medium-tier language.
+- Bad: Does not meet the above conditions.

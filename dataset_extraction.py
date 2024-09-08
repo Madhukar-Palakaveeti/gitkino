@@ -15,7 +15,7 @@ with open('user_urls.json', 'r') as f:
 
 full_urls = ob['urls']
 full_urls = full_urls[:5000]
-urls = np.random.choice(full_urls, size=5000, replace=False)
+urls = np.random.choice(full_urls, size=2500, replace=False)
 for url in urls:
     user_url = url['user_url']
     repos_url = url['repos_url']
@@ -36,7 +36,7 @@ for url in urls:
                                        'watchers' : repo['watchers']}
                                      for repo in repos_data ]
         data.append(batch_data)
-    time.sleep(2)
+    time.sleep(1.5)
 
 with open('dataset.json' , 'w') as f:
     json.dump({'data' : data}, f)
