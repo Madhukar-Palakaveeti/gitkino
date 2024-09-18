@@ -10,11 +10,13 @@ def index():
     return render_template('index.html')
 
 @app.route('/detect',methods=['GET', 'POST'])
-def detect():
+def detect(result=None):
     if request.method == 'POST':
         user = request.form['input_text']
-        user_data = get_user_data(user)
-        result = 'SLOP' if predict(user_data) else 'KINO'
+        user_data = get_user_data(user) if user else None
+        if user_data:
+            result = 'SLOP' if predict(user_data) else 'KINO' 
+        # print(user_data)
         return render_template('index.html', result=result)
 
 app.run(debug=True)
