@@ -8,15 +8,15 @@
 </head>
 <style>
     body {
-    background-color: #0d1117;
-    color: #c9d1d9;
-    font-family: 'Roboto', sans-serif;
-    /*display: flex;*/
-    justify-content: center;
-    align-items: center;
-    text-align: center;
-    height: 100vh;
-    margin-top: 300px;
+        background-color: #0d1117;
+        color: #c9d1d9;
+        font-family: 'Roboto', sans-serif;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-direction: column;
+        text-align: center;
+        height: 100vh;
     }     
 
     input[type="text"] {
@@ -64,6 +64,7 @@
 </style>
 
 <body>
+    <img src="static/gitcat.jfif" alt="gitcat">
     <h1>GitKino</h1>
     <form id="chat_form" action="/detect" method="post">
         <input type="text" name="input_text">   
