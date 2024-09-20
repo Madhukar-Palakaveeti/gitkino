@@ -54,12 +54,13 @@ def get_user_data(user):
         batch_data = {}
         user_data = user_res.json()
         repos_data = repos_res.json()
+        batch_data['avatar'] = user_data['avatar_url']
         batch_data['followers'] = user_data['followers']
         batch_data['languages'] = set()
         batch_data['total_stars'] = 0
         batch_data['total_forks'] = 0
         batch_data['kino_language_count'] = 0
-        batch_data['repo_count'] = 0
+        batch_data['repo_count'] = user_data['public_repos']
         batch_data['repo_details'] = [{'language' : repo['language'], 
                                         'stars' : repo['stargazers_count'],
                                         'forks' : repo['forks'],
@@ -71,10 +72,9 @@ def get_user_data(user):
                 batch_data['languages'].add(repo['language'])
             batch_data['total_stars'] += repo['stars']
             batch_data['total_forks'] += repo['forks']
-            batch_data['repo_count'] += len(batch_data['repo_details'])
         batch_data['kino_language_count'] += language_count(batch_data['languages'])
         
-    return [batch_data['followers'], batch_data['total_stars'], batch_data['total_forks'], batch_data['repo_count'], batch_data['kino_language_count']]
+    return [batch_data['avatar'], batch_data['followers'], batch_data['total_stars'], batch_data['total_forks'], batch_data['repo_count'], batch_data['kino_language_count']]
 
 def predict(user_arr):
     layer1 = Layer_Dense(5,64)

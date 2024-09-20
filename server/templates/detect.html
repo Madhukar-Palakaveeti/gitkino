@@ -1,0 +1,22 @@
+{% extends "base.html" %}
+{% block style %} 
+    <link rel="stylesheet" href="{{url_for('static', filename='detect.css')}}"> 
+    <link rel="stylesheet" href="{{url_for('static', filename='index.css')}}">
+{% endblock %}
+{% block content %}
+    <div class="result">
+        {% if result %}
+            <img src="{{ avatar_url }}" alt="avatar">
+            <p>Your GitHub account is: <strong>{{ result }}</strong></p>
+            <ul>
+                <li>Follwers : {{ user_data[0] }}</li>
+                <li>total_stars : {{ user_data[1] }}</li>
+                <li>total_forks : {{ user_data[2] }}</li>
+                <li>repo_count : {{ user_data[3] }}</li>
+                <li>kino_language_count : {{ user_data[4] }}</li>
+            </ul>
+        {% else %}
+            <p>Please enter a username, don't make me guess!</p>
+        {% endif %}
+    </div>
+{% endblock %}
