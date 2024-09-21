@@ -4,20 +4,22 @@
     font-size: 1.2em;
 }
 
-#followers{
+.features{
     display: flex;
     flex-direction: row;
+    border-radius: 5px;
+    border-color: #f0f6fc;
 }
 
 .square {
     width: 20px;
     height: 20px;
     margin: 2px;
-    background-color: #ebedf0;
+    background-color: #161b22;
 }
 
 .level-0 {
-    background-color: #ebedf0;
+    background-color: #161b22;
 }
 
 .level-1 {

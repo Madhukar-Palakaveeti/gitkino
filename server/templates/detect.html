@@ -9,7 +9,7 @@
             <img src="{{ avatar_url }}" alt="avatar">
             <p>Your GitHub account is: <strong>{{ result }}</strong></p>
             
-                <div id="followers">
+                <div class="features" id="followers">
                     Followers : {{ user_data[0] }}
                     <div class="square" id="square-1"></div>
                     <div class="square" id="square-2"></div>
@@ -18,7 +18,7 @@
                     <div class="square" id="square-5"></div>
                 </div>
                     
-                <div id="total-stars">
+                <div class="features" id="total-stars">
                     total_stars : {{ user_data[1] }}
                     <div class="square" id="square-1"></div>
                     <div class="square" id="square-2"></div>
@@ -27,7 +27,7 @@
                     <div class="square" id="square-5"></div>
                 </div>   
                 
-                <div id="total-forks">
+                <div class="features" id="total-forks">
                     total_forks : {{ user_data[2] }}
                     <div class="square" id="square-1"></div>
                     <div class="square" id="square-2"></div>
@@ -36,7 +36,7 @@
                     <div class="square" id="square-5"></div>
                 </div> 
 
-                <div id="repo-count">
+                <div class="features" id="repo-count">
                     repo_count : {{ user_data[3] }}
                     <div class="square" id="square-1"></div>
                     <div class="square" id="square-2"></div>
@@ -45,7 +45,7 @@
                     <div class="square" id="square-5"></div>
                 </div>
                 
-                <div id="languages">
+                <div class="features" id="languages">
                     Languages : {{ user_data[4] }}
                     <div class="square" id="square-1"></div>
                     <div class="square" id="square-2"></div>
@@ -61,19 +61,22 @@
 {% endblock %}
 {% block script %}
 <script>
-    const followers = {{ user_data[0] }};
-    const squares = document.querySelectorAll('.square');
+    const item_list = [{{ user_data[0] }},{{ user_data[1] }},{{ user_data[2] }},{{ user_data[3] }},{{ user_data[4] }} ];
+    const allDivs = ['followers', 'total-stars', 'total-forks', 'repo-count', 'languages'];
     let levels =  ['level-0', 'level-1', 'level-2', 'level-3', 'level-4'];
-    const index = Math.min(Math.floor(followers/50), 4);
-    // console.log(index);
-    // // const container = document.getElementById('followers');
-    squares.forEach ((square, i) => {
-        if (i <= index){
-            square.classList.add(levels[i]);
+
+    allDivs.forEach((divId, i) => {
+      const value = item_list[i];
+      const squares = document.querySelectorAll(`#${divId} .square`);
+      const index = Math.min(Math.floor(value / 50), 4);
+
+      squares.forEach((square, j) => {
+        if (j <= index) {
+          square.classList.add(levels[j]);
+        } else {
+            square.classList.add(levels[0]); 
         }
-        else{
-            square.classList.add(levels[0]);
-        }
-        });
+      });
+    });
 </script>
 {% endblock %}
