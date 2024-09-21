@@ -8,15 +8,72 @@
         {% if result %}
             <img src="{{ avatar_url }}" alt="avatar">
             <p>Your GitHub account is: <strong>{{ result }}</strong></p>
-            <ul>
-                <li>Follwers : {{ user_data[0] }}</li>
-                <li>total_stars : {{ user_data[1] }}</li>
-                <li>total_forks : {{ user_data[2] }}</li>
-                <li>repo_count : {{ user_data[3] }}</li>
-                <li>kino_language_count : {{ user_data[4] }}</li>
-            </ul>
+            
+                <div id="followers">
+                    Followers : {{ user_data[0] }}
+                    <div class="square" id="square-1"></div>
+                    <div class="square" id="square-2"></div>
+                    <div class="square" id="square-3"></div>
+                    <div class="square" id="square-4"></div>
+                    <div class="square" id="square-5"></div>
+                </div>
+                    
+                <div id="total-stars">
+                    total_stars : {{ user_data[1] }}
+                    <div class="square" id="square-1"></div>
+                    <div class="square" id="square-2"></div>
+                    <div class="square" id="square-3"></div>
+                    <div class="square" id="square-4"></div>
+                    <div class="square" id="square-5"></div>
+                </div>   
+                
+                <div id="total-forks">
+                    total_forks : {{ user_data[2] }}
+                    <div class="square" id="square-1"></div>
+                    <div class="square" id="square-2"></div>
+                    <div class="square" id="square-3"></div>
+                    <div class="square" id="square-4"></div>
+                    <div class="square" id="square-5"></div>
+                </div> 
+
+                <div id="repo-count">
+                    repo_count : {{ user_data[3] }}
+                    <div class="square" id="square-1"></div>
+                    <div class="square" id="square-2"></div>
+                    <div class="square" id="square-3"></div>
+                    <div class="square" id="square-4"></div>
+                    <div class="square" id="square-5"></div>
+                </div>
+                
+                <div id="languages">
+                    Languages : {{ user_data[4] }}
+                    <div class="square" id="square-1"></div>
+                    <div class="square" id="square-2"></div>
+                    <div class="square" id="square-3"></div>
+                    <div class="square" id="square-4"></div>
+                    <div class="square" id="square-5"></div>
+                </div>
+                
         {% else %}
             <p>Please enter a username, don't make me guess!</p>
         {% endif %}
     </div>
+{% endblock %}
+{% block script %}
+<script>
+    const followers = {{ user_data[0] }};
+    const squares = document.querySelectorAll('.square');
+    let levels =  ['level-0', 'level-1', 'level-2', 'level-3', 'level-4'];
+    const index = Math.min(Math.floor(followers/50), 4);
+    // console.log(index);
+    // // const container = document.getElementById('followers');
+    squares.forEach ((square, i) => {
+        if (i <= index){
+            square.classList.add(levels[i]);
+        }
+        else{
+            square.classList.add(levels[0]);
+        }
+        });
+</script>
 {% endblock %}

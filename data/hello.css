@@ -1,12 +1,23 @@
-.result p{
-    color: #f0f6fc; 
-    margin: 100px;
-    font-size: 1.2em;
+body {
+    font-family: Arial, sans-serif;
+    background-color: #1c1c1c;
+    color: white;
+    text-align: center;
 }
 
-#followers{
+.stats-container {
     display: flex;
-    flex-direction: row;
+    justify-content: center;
+    flex-wrap: wrap;
+    margin-top: 50px;
+}
+
+.stat {
+    margin: 20px;
+}
+
+.grid {
+    display: flex;
 }
 
 .square {
