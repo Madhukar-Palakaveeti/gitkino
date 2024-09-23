@@ -110,7 +110,7 @@ header {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    padding: 20px;
+    padding: 10px;
     box-sizing: border-box;
     position: fixed;
     top: 0;

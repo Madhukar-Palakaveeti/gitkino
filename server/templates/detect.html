@@ -3,14 +3,22 @@
     <link rel="stylesheet" href="{{url_for('static', filename='detect.css')}}"> 
     <link rel="stylesheet" href="{{url_for('static', filename='index.css')}}">
 {% endblock %}
+{% block font %}
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Source+Serif+4:ital,opsz,wght@0,8..60,200..900;1,8..60,200..900&display=swap" rel="stylesheet">
+{% endblock %}
 {% block content %}
     <div class="result">
         {% if result %}
             <img src="{{ avatar_url }}" alt="avatar">
-            <p>Your GitHub account is: <strong>{{ result }}</strong></p>
-            
+            {% if result == 'KINO' %}
+                <p>your github account is <strong id="kino">{{ result }}</strong><span>&#x2705;</span> </p>
+            {% else %}
+            <p>your github account is <strong id="slop">{{ result }}</strong><span>&#10060;</span></p>
+            {% endif %}
                 <div class="features" id="followers">
-                    Followers : {{ user_data[0] }}
+                    <p> followers - {{ user_data[0] }}</p>
                     <div class="square" id="square-1"></div>
                     <div class="square" id="square-2"></div>
                     <div class="square" id="square-3"></div>
@@ -19,7 +27,7 @@
                 </div>
                     
                 <div class="features" id="total-stars">
-                    total_stars : {{ user_data[1] }}
+                    <p>total stars - {{ user_data[1] }}</p>
                     <div class="square" id="square-1"></div>
                     <div class="square" id="square-2"></div>
                     <div class="square" id="square-3"></div>
@@ -28,7 +36,7 @@
                 </div>   
                 
                 <div class="features" id="total-forks">
-                    total_forks : {{ user_data[2] }}
+                    <p>total forks - {{ user_data[2] }}</p>
                     <div class="square" id="square-1"></div>
                     <div class="square" id="square-2"></div>
                     <div class="square" id="square-3"></div>
@@ -37,7 +45,7 @@
                 </div> 
 
                 <div class="features" id="repo-count">
-                    repo_count : {{ user_data[3] }}
+                    <p>repo count - {{ user_data[3] }}</p>
                     <div class="square" id="square-1"></div>
                     <div class="square" id="square-2"></div>
                     <div class="square" id="square-3"></div>
@@ -46,7 +54,7 @@
                 </div>
                 
                 <div class="features" id="languages">
-                    Languages : {{ user_data[4] }}
+                    <p>top languages - {{ user_data[4] }}</p>
                     <div class="square" id="square-1"></div>
                     <div class="square" id="square-2"></div>
                     <div class="square" id="square-3"></div>
@@ -61,8 +69,8 @@
 {% endblock %}
 {% block script %}
 <script>
-    const item_list = [{{ user_data[0] }},{{ user_data[1] }},{{ user_data[2] }},{{ user_data[3] }},{{ user_data[4] }} ];
-    const allDivs = ['followers', 'total-stars', 'total-forks', 'repo-count', 'languages'];
+    const item_list = [{{ user_data[0] }},{{ user_data[1] }},{{ user_data[2] }} ];
+    const allDivs = ['followers', 'total-stars', 'total-forks'];
     let levels =  ['level-0', 'level-1', 'level-2', 'level-3', 'level-4'];
 
     allDivs.forEach((divId, i) => {
@@ -78,5 +86,31 @@
         }
       });
     });
+
+    const repoCount = {{user_data[3]}};
+    // console.log(repoCount);
+    const repoSquares = document.querySelectorAll(`#repo-count .square`);
+    const repoIndex = Math.min(Math.floor(repoCount/10), 4);
+    console.log(repoIndex);
+    console.log(repoSquares);
+    repoSquares.forEach((repoSquare, x) => {
+        if (x <= repoIndex) {
+            repoSquare.classList.add(levels[x]);
+        } else {
+            repoSquare.classList.add(levels[0]); 
+        }
+      });
+
+    const langCount = {{user_data[4]}};
+    const langSquares = document.querySelectorAll(`#languages .square`);
+    const langIndex = Math.min(langCount, 4);
+    langSquares.forEach((langSquare, x) => {
+        if (x <= langIndex) {
+            langSquare.classList.add(levels[x]);
+        } else {
+            langSquare.classList.add(levels[0]); 
+        }
+      });
+
 </script>
 {% endblock %}

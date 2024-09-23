@@ -1,25 +1,58 @@
 .result p{
     color: #f0f6fc; 
-    margin: 100px;
-    font-size: 1.2em;
+    margin: 10px 10px 20px;
+    font-size: 3em;
+    font-family: "Source Serif 4", monospace;
+    font-optical-sizing: auto;
+    font-weight: 400;
+    font-style: normal;
+    
+    }
+#kino{
+    color: #0bf407;
 }
 
+#slop{
+    color : red;
+}
+img{
+    margin-top: 75px;
+    width: 150px; /* Set the width and height to maintain aspect ratio */
+    height: 150px;
+    border-radius: 50%; /* Set the border radius to 50% for a circular shape */
+    object-fit: cover; /* Scale the image to cover the entire container */
+    border: 5px solid #fff; /* Add a white border (optional) */
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.2); /* Add a subtle shadow (optional) */
+}
 .features{
     display: flex;
     flex-direction: row;
-    border-radius: 5px;
-    border-color: #f0f6fc;
+    margin-left: 50px;
+    align-items: center;
+    
+}   
+
+.features p{
+    font-size: 2em;
+    font-family: "Source Serif 4", monospace;
+    font-optical-sizing: auto;
+    font-weight: 200;
+    font-style: normal;
+    color: #58a6ff;
+    text-transform: capitalize;
+    margin: 0px 30px 10px 50px;
 }
 
 .square {
-    width: 20px;
-    height: 20px;
+    width: 30px;
+    height: 30px;
     margin: 2px;
-    background-color: #161b22;
+    background-color: black;
+    margin-right : 5px;
 }
 
 .level-0 {
-    background-color: #161b22;
+    background-color: #2c2e31;
 }
 
 .level-1 {
