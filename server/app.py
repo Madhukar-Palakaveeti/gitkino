@@ -1,5 +1,5 @@
 import os
-from helper import get_user_data, predict
+from server.helper import get_user_data, predict
 from flask import Flask, render_template, request, url_for
 
 app = Flask(__name__)
