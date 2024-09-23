@@ -8,6 +8,10 @@
     font-style: normal;
     
     }
+
+.result #no-details{
+    margin-top: 50px;
+}
 #kino{
     color: #0bf407;
 }

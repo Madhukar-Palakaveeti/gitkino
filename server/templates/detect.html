@@ -10,7 +10,7 @@
 {% endblock %}
 {% block content %}
     <div class="result">
-        {% if result %}
+        {% if result is not none and avatar_url is not none %}
             <img src="{{ avatar_url }}" alt="avatar">
             {% if result == 'KINO' %}
                 <p>your github account is <strong id="kino">{{ result }}</strong><span>&#x2705;</span> </p>
@@ -63,7 +63,7 @@
                 </div>
                 
         {% else %}
-            <p>Please enter a username, don't make me guess!</p>
+            <p id="no-details">Please enter a username, don't make me guess!</p>
         {% endif %}
     </div>
 {% endblock %}
