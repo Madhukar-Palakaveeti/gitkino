@@ -17,7 +17,7 @@ def detect(result=None):
         if user_data:
             avatar_url = user_data[0]
             result = 'SLOP' if predict(user_data[1:]) else 'KINO' 
-        # print(user_data)|
+        # print(user_data)
         return render_template('detect.html', result=result, avatar_url=avatar_url, user_data=user_data[1:])
 
 app.run(debug=True)
