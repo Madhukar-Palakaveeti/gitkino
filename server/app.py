@@ -124,4 +124,4 @@ def detect(result=None, avatar_url=None, user_features=None):
         # print(user_data)
         return render_template('detect.html', result=result, avatar_url=avatar_url, user_data=user_features)
 
-app.run(debug=True)
+app.run(host='0.0.0.0', port=4000)
