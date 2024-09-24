@@ -78,7 +78,8 @@ def get_user_data(user):
             batch_data['total_forks'] += repo['forks']
         batch_data['kino_language_count'] += language_count(batch_data['languages'])
         
-    return [batch_data['avatar'], batch_data['followers'], batch_data['total_stars'], batch_data['total_forks'], batch_data['repo_count'], batch_data['kino_language_count']]
+        return [batch_data['avatar'], batch_data['followers'], batch_data['total_stars'], batch_data['total_forks'], batch_data['repo_count'], batch_data['kino_language_count']]
+
 
 def predict(user_arr):
     layer1 = Layer_Dense(5,64)
@@ -123,4 +124,4 @@ def detect(result=None, avatar_url=None, user_features=None):
         # print(user_data)
         return render_template('detect.html', result=result, avatar_url=avatar_url, user_data=user_features)
 
-app.run(port=4000, host='0.0.0.0')
+app.run(debug=True)
