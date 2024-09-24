@@ -29,9 +29,11 @@
         </div>
         <img src="static/slop.jpg" alt="Slop Content" class="logo">
     </div>
-{% endblock %}    
+{% endblock %}
+{% block script %}
         <script type="text/javascript">
             document.getElementById("clear").onclick = function () {
                 window.location.replace('/');
             };
         </script>
+{% endblock %}
